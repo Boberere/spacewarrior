@@ -1,74 +1,92 @@
+// ----------------------------------------------- app normalization start
 *,
 *::before,
 *::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 html {
     font-size: 62.5%;
 }
 body {
     position: relative;
-    height: 100vh;
-    overflow: hidden;
-    font-family: 'DotGothic16', sans-serif;
-    font-size: 1.6rem;
-    // font-family: 'Genos', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+	height: 100vh;
+    background-color: #333;
+	overflow: hidden;
+	font-size: 1.6rem;
+	font-family: 'Genos', sans-serif;
 }
-// --------------- background start------------------
-.level-bg {
-    height: 100%;
-    width: 100%;
-    background-image: url('../img/galaxy.jpg');
-    background-size: cover;
-    &-color {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        width: 100%;
-        background-color: rgb(0, 0, 23);
-        opacity: 95%;
-        .level-area {
-            position: absolute;
-            top: 80%;
-            left: 50%;
-            height: 10%;
-            width: 10%;
-            .spaceship-items {
-                .spaceship {
-                    z-index: 100;
-                    transition: .1s;
-                }
-            } 
-        }
-    }
+canvas {
+    z-index: 2000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
 }
+    // ----------------------------------------------- app normalization end
+// ----------------------------------------------- app background start
+.app-bg {
+	height: 100%;
+	width: 100%;
+	background-image: url('../img/galaxy.jpg');
+	background-size: cover;
+	&-color {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		width: 100%;
+		background-color: rgb(0, 0, 23);
+		opacity: 95%;
+	}
+}
+// ----------------------------------------------- app background end
+// ----------------------------------------------- app background animation start
 .star {
     position: absolute;
-    top: -50px;
-    height: 3px;
-    width: 3px;
-    background-color: gold;
-    box-shadow: 0px 0px 3px yellow;
-    animation: stars linear 3s;
+	top: -50px;
+	height: 3px;
+	width: 3px;
+	background-color: gold;
+	box-shadow: 0px 0px 3px yellow;
+	animation: stars linear 3s;
+    z-index: 100;
 }
 @keyframes stars {
     to {
         transform: translateY(120vh);
-    }
+	}
 }
-// --------------- background end ------------------
-.level-score-bar {
+// ----------------------------------------------- app background animation end
+// ----------------------------------------------- running game area start
+.app-game-area {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    color: white;
-    font-size: 3rem;
-    text-transform: uppercase;
-    z-index: 10;
+	top: 80%;
+	left: 50%;
+	height: 10%;
+	width: 10%;
+    // ----------------------------------------------- running game area end
+	// ----------------------------------------------- spaceship start
+	.spaceship {
+        z-index: 1000;
+		transition: 0.1s;
+        display: none;
+	}
 }
-// --------------- player spaceship start ------------------
+// ----------------------------------------------- spaceship end
+.app-score-meter {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	color: white;
+	font-size: 3rem;
+	text-transform: uppercase;
+	z-index: 10;
+}
 
-// --------------- player spaceship end ------------------
+
