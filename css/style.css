@@ -1,0 +1,94 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'DotGothic16', sans-serif;
+  font-size: 1.6rem;
+}
+
+.level-bg {
+  height: 100%;
+  width: 100%;
+  background-image: url("../img/galaxy.jpg");
+  background-size: cover;
+}
+
+.level-bg-color {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: #000017;
+  opacity: 95%;
+}
+
+.level-bg-color .level-area {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  height: 10%;
+  width: 10%;
+}
+
+.level-bg-color .level-area .spaceship-items .spaceship {
+  z-index: 100;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+.star {
+  position: absolute;
+  top: -50px;
+  height: 3px;
+  width: 3px;
+  background-color: gold;
+  -webkit-box-shadow: 0px 0px 3px yellow;
+          box-shadow: 0px 0px 3px yellow;
+  -webkit-animation: stars linear 3s;
+          animation: stars linear 3s;
+}
+
+@-webkit-keyframes stars {
+  to {
+    -webkit-transform: translateY(120vh);
+            transform: translateY(120vh);
+  }
+}
+
+@keyframes stars {
+  to {
+    -webkit-transform: translateY(120vh);
+            transform: translateY(120vh);
+  }
+}
+
+.level-score-bar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-size: 3rem;
+  text-transform: uppercase;
+  z-index: 10;
+}
+/*# sourceMappingURL=style.css.map */
